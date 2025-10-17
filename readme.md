@@ -51,6 +51,48 @@ Si no usas Dev Container, instala:
 - **[.NET SDK 9.0](https://dotnet.microsoft.com/download)**
 - **VS Code** con las extensiones: C# Dev Kit, C#, .NET Runtime
 
+### 📜 Scripts Básicos de C# (Opcional)
+
+Si quieres ejecutar scripts de C# sin crear un proyecto completo (archivos `.csx`), instala `dotnet-script`:
+
+```bash
+# Instalar dotnet-script globalmente
+dotnet tool install -g dotnet-script
+```
+
+**Configurar el PATH:**
+
+Después de instalar, agrega la ruta de las herramientas de .NET al PATH en tu `~/.bashrc`:
+
+```bash
+# Agregar herramientas de .NET al PATH
+export PATH="$PATH:$HOME/.dotnet/tools"
+```
+
+Luego recarga la configuración:
+
+```bash
+source ~/.bashrc
+```
+
+**Uso:**
+```bash
+# Ejecutar un script .csx
+dotnet script mi-script.csx
+
+# O simplemente
+dotnet-script mi-script.csx
+```
+
+**Ejemplo de script (`hello.csx`):**
+```csharp
+Console.WriteLine("¡Hola desde un script C#!");
+var nombre = "Desarrollador";
+Console.WriteLine($"Bienvenido, {nombre}");
+```
+
+> **💡 Nota**: Los laboratorios de este repositorio usan proyectos de consola estándar (`dotnet run`), no scripts `.csx`. Esta herramienta es útil para pruebas rápidas y experimentación.
+
 ---
 
 ### ¿Qué es un Dev Container?
@@ -318,7 +360,106 @@ Variables, tipos numéricos, strings, conversiones y más.
 
 ---
 
-## 🛠️ Comandos Útiles
+## � Crear un Proyecto con .NET
+
+### Tipos de Proyectos Comunes
+
+```bash
+# Ver todas las plantillas disponibles
+dotnet new list
+
+# Aplicación de consola (lo más común para aprender)
+dotnet new console -n MiProyecto
+
+# Aplicación web ASP.NET Core
+dotnet new web -n MiWebApp
+
+# API Web
+dotnet new webapi -n MiAPI
+
+# Biblioteca de clases
+dotnet new classlib -n MiBiblioteca
+
+# Aplicación Blazor (aplicaciones web interactivas)
+dotnet new blazor -n MiAppBlazor
+```
+
+### Crear y Ejecutar un Proyecto Paso a Paso
+
+```bash
+# 1. Crear un nuevo proyecto de consola
+dotnet new console -n 03-mi-primer-proyecto
+
+# 2. Entrar al directorio del proyecto
+cd 03-mi-primer-proyecto
+
+# 3. Ejecutar el proyecto
+dotnet run
+
+# 4. Compilar sin ejecutar
+dotnet build
+
+# 5. Limpiar archivos compilados
+dotnet clean
+
+# 6. Ejecutar en modo watch (recarga automática al guardar)
+dotnet watch run
+```
+
+### Estructura de un Proyecto
+
+Después de crear un proyecto con `dotnet new console -n MiProyecto`, obtendrás:
+
+```
+MiProyecto/
+├── Program.cs           # Archivo principal con el código
+├── MiProyecto.csproj    # Archivo de configuración del proyecto
+└── obj/                 # Archivos temporales de compilación (ignorar)
+```
+
+### Agregar Paquetes NuGet
+
+```bash
+# Buscar un paquete
+dotnet search <nombre-paquete>
+
+# Agregar un paquete al proyecto
+dotnet add package Newtonsoft.Json
+
+# Agregar una versión específica
+dotnet add package Newtonsoft.Json --version 13.0.3
+
+# Listar paquetes instalados
+dotnet list package
+
+# Eliminar un paquete
+dotnet remove package Newtonsoft.Json
+```
+
+### Crear una Solución (Múltiples Proyectos)
+
+```bash
+# 1. Crear una solución
+dotnet new sln -n MiSolucion
+
+# 2. Crear proyectos
+dotnet new console -n App
+dotnet new classlib -n Biblioteca
+
+# 3. Agregar proyectos a la solución
+dotnet sln add App/App.csproj
+dotnet sln add Biblioteca/Biblioteca.csproj
+
+# 4. Compilar toda la solución
+dotnet build
+
+# 5. Ejecutar un proyecto específico
+dotnet run --project App
+```
+
+---
+
+## �🛠️ Comandos Útiles
 
 ```bash
 # Ejecutar un laboratorio
@@ -332,6 +473,18 @@ dotnet watch run
 
 # Limpiar archivos de compilación
 dotnet clean
+
+# Ver información del SDK instalado
+dotnet --info
+
+# Ver versión
+dotnet --version
+
+# Restaurar dependencias
+dotnet restore
+
+# Publicar aplicación para distribución
+dotnet publish -c Release
 ```
 
 ---
