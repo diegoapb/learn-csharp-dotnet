@@ -4,13 +4,100 @@ Repositorio de aprendizaje de C# y .NET con laboratorios prácticos desde concep
 
 ---
 
-## 🐳 Inicio Rápido con Dev Container (Recomendado)
+## � Estructura del Repositorio
+
+```
+learn-csharp-dotnet/
+├── 01-fundamentals/        # Fundamentos de C#
+├── 02-control-flow/        # Estructuras de control
+├── 03-oop/                 # Programación orientada a objetos
+├── 04-collections/         # Colecciones y LINQ
+├── projects/               # Proyectos completos
+├── exercises/              # Ejercicios y desafíos
+├── docs/                   # Documentación y notas
+│   ├── notes.md           # Notas de aprendizaje
+│   ├── coding-standards.md
+│   └── scaffolding-guide.md  # Guía completa de estructura
+└── scripts/                # Scripts de automatización
+    ├── create-project.sh  # Crear nuevos proyectos
+    ├── list-projects.sh   # Listar proyectos
+    ├── run-all.sh         # Ejecutar todos
+    └── clean-all.sh       # Limpiar compilaciones
+```
+
+> 📖 **Consulta la [Guía de Scaffolding](docs/scaffolding-guide.md)** para entender la estructura completa y las mejores prácticas de organización.
+
+---
+
+## �🐳 Inicio Rápido con Dev Container (Recomendado)
 
 Este proyecto incluye un **Dev Container** con .NET 9.0 y todas las herramientas preconfiguradas.
 
 ### Requisitos
 
-1. **[Docker Desktop](https://docs.docker.com/desktop/install/)** (Windows/Mac/Linux)
+1. **[Docker Desktop](https://docs.docke---
+
+## 📦 Crear un Proyecto con .NET
+
+### 🚀 Método Rápido: Usar el Script Automatizado
+
+Este repositorio incluye un script que facilita la creación de nuevos proyectos con la estructura correcta:
+
+```bash
+# 1. Crear la carpeta de categoría (si no existe)
+mkdir -p 01-fundamentals
+
+# 2. Usar el script para crear el proyecto
+./scripts/create-project.sh 01-fundamentals 03-operadores-aritmeticos
+```
+
+**Salida esperada:**
+```
+Creando proyecto en: 01-fundamentals/03-operadores-aritmeticos
+Creando proyecto .NET: OperadoresAritmeticos
+The template "Console App" was created successfully.
+
+Processing post-creation actions...
+Restoring .../OperadoresAritmeticos.csproj:
+Restore succeeded.
+
+Creando README.md
+✅ Proyecto creado exitosamente!
+
+📁 Ubicación: 01-fundamentals/03-operadores-aritmeticos
+📦 Nombre del proyecto: OperadoresAritmeticos
+
+Próximos pasos:
+  1. cd 01-fundamentals/03-operadores-aritmeticos
+  2. code .
+  3. Edita Program.cs
+  4. dotnet run
+```
+
+**Categorías disponibles para usar con el script:**
+- `01-fundamentals` - Fundamentos de C#
+- `02-control-flow` - Estructuras de control
+- `03-oop` - Programación orientada a objetos
+- `04-collections` - Colecciones y LINQ
+- `05-error-handling` - Manejo de errores
+- `06-file-io` - Entrada/salida de archivos
+- `07-advanced` - Temas avanzados
+- `08-web-basics` - Desarrollo web
+- `09-databases` - Bases de datos
+- `projects` - Proyectos completos
+- `exercises/beginner` - Ejercicios para principiantes
+- `exercises/intermediate` - Ejercicios intermedios
+- `exercises/advanced` - Ejercicios avanzados
+
+**Ventajas del script:**
+- ✅ Crea automáticamente el proyecto .NET
+- ✅ Genera un README.md con plantilla
+- ✅ Convierte nombres kebab-case a PascalCase
+- ✅ Estructura consistente en todo el repositorio
+
+---
+
+### 📝 Método Manual: Tipos de Proyectos Comunes/desktop/install/)** (Windows/Mac/Linux)
 2. **[VS Code](https://code.visualstudio.com/)**
 3. **Extensión**: `Dev Containers` para VS Code
 
@@ -459,7 +546,9 @@ dotnet run --project App
 
 ---
 
-## �🛠️ Comandos Útiles
+## 🛠️ Comandos Útiles
+
+### Comandos de .NET
 
 ```bash
 # Ejecutar un laboratorio
@@ -481,6 +570,46 @@ dotnet --info
 dotnet --version
 
 # Restaurar dependencias
+dotnet restore
+
+# Publicar aplicación para distribución
+dotnet publish -c Release
+```
+
+### Scripts Personalizados del Repositorio
+
+Este repositorio incluye scripts útiles en la carpeta `/scripts`:
+
+#### 📝 Listar todos los proyectos
+```bash
+./scripts/list-projects.sh
+```
+Muestra un listado organizado de todos los proyectos en el repositorio.
+
+#### 🏃 Ejecutar todos los proyectos
+```bash
+# Ejecutar TODOS los proyectos
+./scripts/run-all.sh
+
+# Ejecutar solo los proyectos de una categoría
+./scripts/run-all.sh 01-fundamentals
+```
+Útil para verificar que todos los proyectos compilan y ejecutan correctamente.
+
+#### 🧹 Limpiar archivos compilados
+```bash
+./scripts/clean-all.sh
+```
+Elimina todas las carpetas `bin/` y `obj/` del repositorio para liberar espacio.
+
+#### ➕ Crear un nuevo proyecto
+```bash
+./scripts/create-project.sh <categoria> <nombre-proyecto>
+
+# Ejemplo:
+./scripts/create-project.sh 01-fundamentals 04-mi-nuevo-tema
+```
+Crea un nuevo proyecto con la estructura correcta automáticamente.
 dotnet restore
 
 # Publicar aplicación para distribución
