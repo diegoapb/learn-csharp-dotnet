@@ -32,3 +32,4 @@ dotnet run
 ## 🐞 Errores Comunes
 - División por cero: Al intentar dividir un número por cero, se lanza una excepción DivideByZeroException.
 - Uso incorrecto de tipos: Asegúrate de que los tipos de datos sean compatibles al realizar operaciones.
+- Precedencia de operadores: 

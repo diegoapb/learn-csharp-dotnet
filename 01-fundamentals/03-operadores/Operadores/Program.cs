@@ -121,3 +121,42 @@ Console.WriteLine("\n=== Fin de los Operadores Lógicos ===");
 
 // Precedencia de Operadores
 
+Console.WriteLine("\n=== Precedencia de Operadores en C# ===\n");
+int a = 10;
+int b = 5;
+int c = 2;
+int resultado1 = a + b * c; // Multiplicación primero
+int resultado2 = (a + b) * c; // Paréntesis primero
+Console.WriteLine($"Sin paréntesis: a + b * c = {resultado1} (Multiplicación primero)");
+Console.WriteLine($"Con paréntesis: (a + b) * c = {resultado2} (Paréntesis primero)");
+// Sin usar paréntesis
+int resultado3 = a - b + c * 2 / 4;
+// En que orden se evalúa:
+// 1. c * 2
+// 2. (resultado) / 4
+// 3. a - b
+// 4. (resultado) + (resultado)
+Console.WriteLine("\nOrden de evaluación sin paréntesis:");
+Console.WriteLine("1. c * 2");
+Console.WriteLine("2. (resultado) / 4");
+Console.WriteLine("3. a - b");
+Console.WriteLine("4. (resultado) + (resultado)");
+Console.WriteLine("Orden de operaciones aplicada:");
+Console.WriteLine($"multiplicaciones y divisiones primero, luego sumas y restas.");
+Console.WriteLine($"\nSin paréntesis: a - b + c * 2 / 4 = {resultado3}");
+// Usando paréntesis para cambiar el orden
+int resultado4 = (a - b + c) * (2 / 4);
+Console.WriteLine($"Con paréntesis: (a - b + c) * (2 / 4) = {resultado4}");
+
+Console.WriteLine("\n=== Fin de la Precedencia de Operadores ===");
+
+// Promoción y Conversión de Tipos
+Console.WriteLine("\n=== Promoción y Conversión de Tipos en C# ===\n");
+int intNum = 42;
+float floatNum = intNum; // Promoción implícita
+double doubleNum = floatNum; // Promoción implícita
+Console.WriteLine($"Promoción implícita: int ({intNum}) -> float ({floatNum}) -> double ({doubleNum})");
+double doubleValue = 9.78;
+int intValue = (int)doubleValue; // Conversión explícita
+Console.WriteLine($"Conversión explícita: double ({doubleValue}) -> int ({intValue})");
+Console.WriteLine("\n=== Fin de la Promoción y Conversión de Tipos ===");
