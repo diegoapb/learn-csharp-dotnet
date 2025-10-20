@@ -3,8 +3,9 @@
 Repositorio de aprendizaje de C# y .NET con laboratorios prácticos desde conceptos básicos hasta temas avanzados.
 
 ---
+![C# Roadmap](docs/images/csharp-roadmap.drawio.svg)
 
-## � Estructura del Repositorio
+## 🗂️ Estructura del Repositorio
 
 ```
 learn-csharp-dotnet/
